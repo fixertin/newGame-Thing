@@ -20,6 +20,7 @@ public class Game implements Runnable{
 	private Graphics g;
 	private KeyManager keyManager;
 	private GameCamera gameCamera;
+	private Handler handler;
 
 	
 	public int width, height;
@@ -40,7 +41,8 @@ public class Game implements Runnable{
 		window.getFrame().addKeyListener(keyManager);
 		Assets.init();
 		gameCamera = new GameCamera(this, 0, 0);
-		gameState = new GameState(this);
+		handler = new Handler(this);
+		gameState = new GameState(handler);
 		State.setState(gameState);
 	}
 	private void tick(){

@@ -3,15 +3,16 @@ package com.fixertin.roguelikeGame.entities;
 import java.awt.Graphics;
 
 import com.fixertin.roguelikeGame.main.Game;
+import com.fixertin.roguelikeGame.main.Handler;
 
 public abstract class Entity {
 	protected float x, y, velx, vely;
-	protected Game game;
+	protected Handler handler;
 	
-	public Entity(Game game, float x, float y){
+	public Entity(Handler handler, float x, float y){
 		this.x = x;
 		this.y = y;
-		this.game = game;
+		this.handler = handler;
 		velx = 0;
 		velx = 0;
 	}

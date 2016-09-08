@@ -3,13 +3,14 @@ package com.fixertin.roguelikeGame.states;
 import java.awt.Graphics;
 
 import com.fixertin.roguelikeGame.main.Game;
+import com.fixertin.roguelikeGame.main.Handler;
 
 public abstract class State {
 	private static State currentState = null;
-	protected Game game;
+	protected Handler handler;
 	
-	public State(Game game){
-		this.game = game;
+	public State(Handler handler){
+		this.handler = handler;
 	}
 	
 	public static void setState(State state){

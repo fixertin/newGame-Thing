@@ -3,24 +3,24 @@ package com.fixertin.roguelikeGame.entities.creatures;
 import java.awt.Graphics;
 
 import com.fixertin.roguelikeGame.GFX.Assets;
-import com.fixertin.roguelikeGame.main.Game;
+import com.fixertin.roguelikeGame.main.Handler;
 
 public class Player extends Creature{
 	
-	public Player(Game game, float x, float y) {
-		super(game, x, y);
+	public Player(Handler handler, float x, float y) {
+		super(handler, x, y);
 	}
 	
 	public void getInput(){
 		velx = 0;
 		vely = 0;
-		if(game.getKeyManager().up)
+		if(handler.getKeyManager().up)
 			vely = -speed;
-		if(game.getKeyManager().down)
+		if(handler.getKeyManager().down)
 			vely = speed;
-		if(game.getKeyManager().left)
+		if(handler.getKeyManager().left)
 			velx = -speed;
-		if(game.getKeyManager().right)
+		if(handler.getKeyManager().right)
 			velx = speed;
 	}
 	
@@ -28,12 +28,12 @@ public class Player extends Creature{
 	public void tick() {
 		getInput();
 		move();
-		game.getCamera().centerOnEntity(this);
+		handler.getCamera().centerOnEntity(this);
 	}
 
 	@Override
 	public void render(Graphics g) {
-		g.drawImage(Assets.player, (int)(x - game.getCamera().getxOffset()), (int)(y - game.getCamera().getyOffset()), null);
+		g.drawImage(Assets.player, (int)(x - handler.getCamera().getxOffset()), (int)(y - handler.getCamera().getyOffset()), null);
 	}
 
 }
